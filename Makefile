@@ -180,3 +180,8 @@ grade:
 	@$(MAKE) clean || \
           (echo "'make clean' failed.  HINT: Do you have another running instance of xv6?" && exit 1)
 	python3 grade-lab-syscall.py
+
+zip:
+	@$(MAKE) clean
+	zip -r project1.zip .
+
