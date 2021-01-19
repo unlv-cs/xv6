@@ -176,4 +176,4 @@ grade:
 	@echo $(MAKE) clean
 	@$(MAKE) clean || \
           (echo "'make clean' failed.  HINT: Do you have another running instance of xv6?" && exit 1)
-	python3 grade-lab-syscall
+	python3 grade-lab-syscall.py
