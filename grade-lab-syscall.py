@@ -12,7 +12,7 @@ def test_trace_32_grep():
     r.match('^\\d+: syscall read -> 966')
     r.match('^\\d+: syscall read -> 0')
 
-@test(15, "trace all grep")
+@test(20, "trace all grep")
 def test_trace_all_grep():
     r.run_qemu(shell_script([
         'trace 2147483647 grep hello README'
