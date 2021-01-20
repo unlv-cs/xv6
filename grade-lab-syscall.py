@@ -43,7 +43,7 @@ def test_sysinfotest():
 @test(50, "time cat README")
 def test_time_32():
     r.run_qemu(shell_script([
-        'time usertests'
+        'time cat README'
     ]))
     r.match('^Real-time in ticks: \\d+')
 
