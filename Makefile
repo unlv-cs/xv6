@@ -132,6 +132,14 @@ UPROGS=\
 	$U/_grind\
 	$U/_wc\
 	$U/_zombie\
+	$U/_uscheduler\
+
+$U/context_switch.o : $U/context_switch.S
+	$(CC) $(CFLAGS) -c -o $U/context_switch.o $U/context_switch.S
+
+$U/_uscheduler: $U/uscheduler.o $U/context_switch.o $(ULIB)
+	$(LD) $(LDFLAGS) -N -e main -Ttext 0 -o $U/_uscheduler $U/uscheduler.o $U/context_switch.o $(ULIB)
+	$(OBJDUMP) -S $U/_uscheduler > $U/uscheduler.asm
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
@@ -170,3 +178,15 @@ qemu-gdb: $K/kernel .gdbinit fs.img
 	@echo "*** Now run 'gdb' in another window." 1>&2
 	$(QEMU) $(QEMUOPTS) -S $(QEMUGDB)
 
+print-gdbport:
+	@echo $(GDBPORT)
+
+grade:
+	@echo $(MAKE) clean
+	@$(MAKE) clean || \
+          (echo "'make clean' failed.  HINT: Do you have another running instance of xv6?" && exit 1)
+	python3 grade-scheduler.py
+
+zip:
+	@$(MAKE) clean
+	zip -r project4.zip .
