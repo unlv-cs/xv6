@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) {
     int pid = ps();
 
-    if(pid != getpid()) {
+    if(pid == getpid()) {
         printf("ps TEST OK\n");
         exit(0);
     }
