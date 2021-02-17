@@ -35,7 +35,7 @@ struct process {
   int        state;             /* FREE, RUNNING, RUNNABLE */
 };
 
-struct process all_process[NPROCS];
+struct process ptable[NPROCS];
 struct process *current_process;
 extern void context_switch(uint64, uint64);
               
