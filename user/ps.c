@@ -6,11 +6,11 @@ int main(int argc, char *argv[]) {
     int pid = ps();
 
     if(pid == getpid()) {
-        printf("ps TEST OK\n");
+        printf("ps test: OK\n");
         exit(0);
     }
     else {
-        printf("ps TEST FAIL\n");
+        printf("ps test: FAIL\n");
         exit(1);
     }
 }

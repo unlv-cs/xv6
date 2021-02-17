@@ -23,16 +23,18 @@ void fork2test(void) {
       wait(0);
     else if(pid == 0)
       exit(0);
-    else
-      break;
+    else {
+      print("fork2test: FAIL\n");
+      exit(1);
+    }
   }
 
   if(wait(0) != -1) {
-    print("wait got too many\n");
+    print("fork2test: FAIL\n");
     exit(1);
   }
 
-  print("fork2 test OK\n");
+  print("fork2test: OK\n");
 }
 
 int

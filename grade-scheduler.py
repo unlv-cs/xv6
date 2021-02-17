@@ -5,8 +5,22 @@ from gradelib import *
 
 r = Runner(save("xv6.out"))
 
+@test(50, "ps")
+def test_ps():
+    r.run_qemu(shell_script([
+        'ps'
+    ]))
+    r.match('^ps test: OK', no=[".* FAIL .*"])
+
+@test(50, "fork2test")
+def test_fork2test():
+    r.run_qemu(shell_script([
+        'fork2test'
+    ]))
+    r.match('^fork2test: OK', no=[".* FAIL .*"])
+
 @test(100, "uscheduler")
-def test_uthread():
+def test_uscheduler():
     r.run_qemu(shell_script([
         'uscheduler'
     ]))
