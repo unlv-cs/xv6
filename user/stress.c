@@ -17,12 +17,12 @@ int main(int argc, char *argv[]) {
     uint64 i, j, x = 0;
 
     if(argc != 2)
-        n = 2;
+        n = 3;
     else
         n = atoi(argv[1]);
 
     if(n < 0 || n > 32)
-        n = 2;
+        n = 3;
 
     for(i = 0; i < n; n++) {
         pid = fork2(rand());
