@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
         else if(pid == 0) {
             for(j = 0; j < ITERATIONS; j++)
                 x = x + 3.14 * 89.64;
-            break;
+            exit(0);
         }
         else {
             printf("stress test fail: could not fork\n");
