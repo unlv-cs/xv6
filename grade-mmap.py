@@ -47,7 +47,7 @@ def test_mmaptest_fork_test():
 def test_usertests():
     r.run_qemu(shell_script([
         'usertests'
-    ]), timeout=360)
+    ]), timeout=420)
     r.match('^ALL TESTS PASSED$')
 
 
