@@ -15,27 +15,27 @@ def test_mmaptest():
 def test_mmaptest_mmap_f():
     r.match('^test mmap f: OK$')
 
-@test(10, "mmaptest: mmap private", parent=test_mmaptest)
+@test(20, "mmaptest: mmap private", parent=test_mmaptest)
 def test_mmaptest_mmap_private():
     r.match('^test mmap private: OK$')
 
-@test(10, "mmaptest: mmap read-only", parent=test_mmaptest)
+@test(20, "mmaptest: mmap read-only", parent=test_mmaptest)
 def test_mmaptest_mmap_readonly():
     r.match('^test mmap read-only: OK$')
 
-@test(10, "mmaptest: mmap read/write", parent=test_mmaptest)
+@test(20, "mmaptest: mmap read/write", parent=test_mmaptest)
 def test_mmaptest_mmap_readwrite():
     r.match('^test mmap read/write: OK$')
 
-@test(10, "mmaptest: mmap dirty", parent=test_mmaptest)
+@test(20, "mmaptest: mmap dirty", parent=test_mmaptest)
 def test_mmaptest_mmap_dirty():
     r.match('^test mmap dirty: OK$')
 
-@test(10, "mmaptest: not-mapped unmap", parent=test_mmaptest)
+@test(20, "mmaptest: not-mapped unmap", parent=test_mmaptest)
 def test_mmaptest_mmap_unmap():
     r.match('^test not-mapped unmap: OK$')
 
-@test(10, "mmaptest: two files", parent=test_mmaptest)
+@test(20, "mmaptest: two files", parent=test_mmaptest)
 def test_mmaptest_mmap_two():
     r.match('^test mmap two files: OK$')
 
