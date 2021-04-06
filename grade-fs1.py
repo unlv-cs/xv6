@@ -3,7 +3,7 @@ from gradelib import *
 
 r = Runner(save("xv6.out"))
 
-@test(40, "running bigfile")
+@test(100, "running bigfile")
 def test_bigfile():
     r.run_qemu(shell_script([
         'bigfile'
@@ -17,11 +17,11 @@ def test_symlinktest():
         'symlinktest'
     ]), timeout=20)
 
-@test(20, "symlinktest: symlinks", parent=test_symlinktest)
+@test(40, "symlinktest: symlinks", parent=test_symlinktest)
 def test_symlinktest_symlinks():
     r.match("^test symlinks: ok$")
 
-@test(20, "symlinktest: concurrent symlinks", parent=test_symlinktest)
+@test(40, "symlinktest: concurrent symlinks", parent=test_symlinktest)
 def test_symlinktest_symlinks():
     r.match("^test concurrent symlinks: ok$")
 
