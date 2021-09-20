@@ -41,7 +41,7 @@ void fork2test(void) {
         exit(1);
     }
 
-    print("fork2 test OK\n");
+    print("fork2test: OK\n");
 }
 
 int main(void) {
