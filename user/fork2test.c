@@ -13,11 +13,10 @@ void print(const char *s) {
 
 void fork2test(void) {
     int n, pid;
-
     print("fork2 test\n");
 
     for (n = 0; n < N; n++) {
-        pid = fork2(2);
+        pid = fork2(n+2);
         if (pid < 0)
             break;
         if (pid == 0)
