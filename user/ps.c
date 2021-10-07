@@ -32,7 +32,8 @@ int main(int argc, char *argv[]) {
                 break;
             case 3:
                 printf("%s", "RUNNABLE");
-                items++ break;
+                items++;
+                break;
             case 4:
                 printf("%s ", "RUNNING");
                 items++;
