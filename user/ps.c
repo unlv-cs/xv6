@@ -7,6 +7,7 @@ int main(int argc, char *argv[]) {
     struct ps_proc ptable[MAX_PROC];
     struct ps_proc *p;
     int err;
+    int items = 0;
 
     err = ps(ptable);
     if (err < 0) {
@@ -23,24 +24,34 @@ int main(int argc, char *argv[]) {
         switch (p->state) {
             case 1:
                 printf("%s    ", "USED");
+                items++;
                 break;
             case 2:
                 printf("%s", "SLEEPING");
+                items++;
                 break;
             case 3:
                 printf("%s", "RUNNABLE");
-                break;
+                items++ break;
             case 4:
                 printf("%s ", "RUNNING");
+                items++;
                 break;
             case 5:
                 printf("%s  ", "ZOMBIE");
+                items++;
                 break;
+            default:
+                printf("ps test: FAILED\n");
+                exit(1);
         }
         printf("\t%d\n", p->priority);
         p++;
     }
     printf("=========================================\n");
-    printf("ps test: OK\n");
+    if (items >= 3)
+        printf("ps test: OK\n");
+    else
+        printf("ps test: FAILED\n");
     exit(0);
 }
