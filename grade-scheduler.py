@@ -37,7 +37,8 @@ def test_uscheduler():
         raise AssertionError("Output does not match expected output")
 
 
-@test(50, "usertests")
+# ONLY FOR PART A AND PART C OF PROJECT 4
+@test(100, "usertests")
 def test_usertests():
     r.run_qemu(shell_script(["usertests"]), timeout=300)
     r.match("^ALL TESTS PASSED$")
