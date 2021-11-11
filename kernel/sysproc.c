@@ -95,3 +95,18 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+
+uint64
+sys_ps(void) {
+  uint64 addr;
+  if(argaddr(0, &addr) < 0) return -1;
+  return ps(addr);
+}
+
+uint64
+sys_fork2(void) { 
+  int priority;
+  if(argint(0, &priority) < 0) return -1;
+  return fork2(priority);
+}

@@ -5,4 +5,7 @@ struct ps_proc {
     int pid;
     int priority;
     char name[16];
+    int ready;
+    int running;
+    int waiting;
 };

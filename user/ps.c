@@ -17,8 +17,8 @@ int main(int argc, char *argv[]) {
 
     p = &ptable[0];
     printf("Process Status\n");
-    printf("name\tpid\tstate\t\tpriority\n");
-    printf("=========================================\n");
+    printf("name\tpid\tstate\t\tpriority\tready\trunning\twaiting\n");
+    printf("=======================================================================\n");
     while (p != &ptable[MAX_PROC - 1] && p->state != 0) {
         printf("%s\t%d\t", p->name, p->pid);
         switch (p->state) {
@@ -46,10 +46,10 @@ int main(int argc, char *argv[]) {
                 printf("ps test: FAILED\n");
                 exit(1);
         }
-        printf("\t%d\n", p->priority);
+        printf("\t%d\t\t%d\t%d\t%d\n", p->priority, p->ready, p->running, p->waiting);
         p++;
     }
-    printf("=========================================\n");
+    printf("=======================================================================\n");
     if (items >= 3)
         printf("ps test: OK\n");
     else
